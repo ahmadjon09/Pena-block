@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container {
+  max-width: 2600px;
+  margin: 0 auto;
+}
+
+.root-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 4fr;
+}
+
+aside ul li a.active {
+  background: #0faddd;
+}
+.h1 {
+  display: none;
+}
+
+.loader {
+  width: 20px;
+  aspect-ratio: 1;
+  display: grid;
+  -webkit-mask: conic-gradient(from 15deg, #0000, #000);
+  animation: l26 1s infinite steps(12);
+}
+.loader,
+.loader:before,
+.loader:after {
+  background: radial-gradient(closest-side at 50% 12.5%, #0faddd 96%, #0000) 50%
+      0/20% 80% repeat-y,
+    radial-gradient(closest-side at 12.5% 50%, #0faddd 96%, #0000) 0 50%/80% 20%
+      repeat-x;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+.loader:after {
+  transform: rotate(60deg);
+}
+
+@keyframes l26 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+@media screen and (max-width: 1100px) {
+  .root-grid {
+    grid-template-columns: 1fr;
+  }
+  .on {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .off {
+    position: fixed;
+    top: 0;
+    left: -100%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    display: none;
+  }
+  .h1 {
+    display: block;
+  }
+}
