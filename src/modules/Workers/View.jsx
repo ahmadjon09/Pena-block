@@ -31,7 +31,7 @@ export function View () {
             acc[month] = { count: 0, totalAmount: 0 }
           }
           acc[month].count += parseInt(item.count) || 0
-          acc[month].totalAmount += parseInt(item.count) * 200
+          acc[month].totalAmount += parseInt(item.count) * 2000
           return acc
         }, {})
 
